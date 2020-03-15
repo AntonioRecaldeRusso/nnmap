@@ -1,5 +1,5 @@
 type Callback = (item: any) => any;
-type QuitCallback = (item: any) => boolean;
+type QuitCallback = (item: any, index: number) => boolean;
 
 function defaultQCB(item: any) {
   return false;
@@ -12,7 +12,7 @@ export default function nnmap(arr: Array<any>, cb: Callback, qcb: QuitCallback =
   for (let i = 0; i < arr.length; i++) {
     value = cb(arr[i]);
     if (value) returnedArray.push(value);
-    if (qcb(arr[i])) break;
+    if (qcb(arr[i], i)) break;
   }
   return returnedArray;
 }
