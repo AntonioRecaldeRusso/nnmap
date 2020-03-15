@@ -5,6 +5,9 @@
     "strict": true,
     "esModuleInterop": true,
     "lib": ["ES6"],
-    "outDir": "build"
-  }
+    "outDir": "build",
+    "sourceMap": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
