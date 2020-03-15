@@ -1,14 +1,28 @@
 {
-  "name": "nnmap",
+  "name": "@arecalde/nnmap",
   "version": "1.0.0",
   "description": "Array mapping ignoring null values",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "build": "tsc index.ts",
-    "test": "jest"
+    "build": "tsc src/index.ts --outDir dist --declaration",
+    "test": "jest",
+    "prepublish": "npm run build",
+    "clean": "rm -rf dist; rm -rf node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioRecaldeRusso/nnmap.git"
   },
   "author": "Antonio Recalde",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonioRecaldeRusso/nnmap/issues"
+  },
+  "homepage": "https://github.com/AntonioRecaldeRusso/nnmap#readme",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
@@ -18,8 +32,8 @@
     "@types/node": "^13.9.1",
     "jest": "^25.1.0",
     "lodash": "^4.17.15",
+    "minimist": "^1.2.5",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {}
+  }
 }
