@@ -18,7 +18,7 @@ function multiplyEvenByTwo(n: number): number | null {
   return null;
 }
 
-function isEvenBoolean(n: number): boolean {
+function isEven(n: number): boolean {
   if (n % 2 === 0) return true;
   return false;
 }
@@ -76,3 +76,12 @@ test('quits when quit-by-value callback returns true', () => {
   
   expect(arraysAreEqual).toBe(true);
 });
+
+test('boolean -false- not ignored by nnmap', () => {
+  const expected = [false, true, false, true, false];
+  const mapResult = nnmap(testArray, isEven);
+  const arraysAreEqual = isEqual(expected, mapResult);
+
+  expect(arraysAreEqual).toBe(true);
+});
+
